@@ -1,11 +1,13 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../shared/authentication-service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
   constructor(
     public authService: AuthenticationService,
@@ -16,9 +18,9 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(email.value, password.value)
       .then((res) => {
         if(this.authService.isEmailVerified) {
-          this.router.navigate(['dashboard']);          
+          this.router.navigate(['profile']);          
         } else {
-          window.alert('Email is not verified')
+          window.alert('O email não foi verificado')
           return false;
         }
       }).catch((error) => {

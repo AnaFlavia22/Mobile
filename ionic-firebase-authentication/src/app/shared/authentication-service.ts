@@ -10,6 +10,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthenticationService {
   userData: any;
   constructor(
